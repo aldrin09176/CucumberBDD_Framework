@@ -23,7 +23,7 @@ public class DriverFactory {
 		if(browserName.equals("chrome")) {
 			
 			
-			//System.setProperty("webdriver.chrome.driver", "/src/test/resources/driver/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/usr/lib/chromium-browser/chromedriver");
 			
 			//Running in Local
 			driver = new ChromeDriver();
