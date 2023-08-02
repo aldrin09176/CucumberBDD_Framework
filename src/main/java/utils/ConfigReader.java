@@ -9,7 +9,10 @@ public class ConfigReader {
 	public Properties intializeProperties() {
 		
 		Properties prop = new Properties();
-		File proFile = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\config\\config.properties");
+		//Windows
+		//File proFile = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\config\\config.properties");
+		//Ubuntu
+		File proFile = new File(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
 		
 		try {
 			FileInputStream fis = new FileInputStream(proFile);

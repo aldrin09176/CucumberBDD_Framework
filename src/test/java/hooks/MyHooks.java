@@ -1,5 +1,6 @@
 package hooks;
 
+import java.net.MalformedURLException;
 import java.util.Properties;
 
 import org.openqa.selenium.OutputType;
@@ -17,7 +18,7 @@ public class MyHooks {
 	WebDriver driver;
 
 	@Before
-	public void setup() {
+	public void setup() throws MalformedURLException {
 		
 		Properties prop = new ConfigReader().intializeProperties();
 		driver = DriverFactory.initializeBrowser(prop.getProperty("browser"));
