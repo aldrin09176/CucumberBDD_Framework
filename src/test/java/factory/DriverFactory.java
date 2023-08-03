@@ -6,6 +6,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,10 +24,12 @@ public class DriverFactory {
 		if(browserName.equals("chrome")) {
 			
 			
-			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-			
+			System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");	
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("headless");
+			options.addArguments("disabled-gpu");
 			//Running in Local
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 			
 			
 			//DesiredCapabilities capabilities = new DesiredCapabilities();
