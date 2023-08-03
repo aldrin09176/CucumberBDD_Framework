@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -27,7 +28,7 @@ public class DriverFactory {
 	
         switch (browserType) {
         	case CHROME:
-        		driver = new ChromeDriver();
+        		initializeChrome();
         		break;
         	case FIREFOX:
         		driver = new FirefoxDriver();
@@ -41,11 +42,17 @@ public class DriverFactory {
         	default:
         		throw new IllegalArgumentException("Browser Type Not Supported");
     }
-
         configureDriver();
 		return driver;
 
 	}
+	
+    private static void initializeChrome() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("window-size=1920,1080");
+        driver = new ChromeDriver(options);
+    }
 	
 	private static void configureDriver() {
         driver.manage().deleteAllCookies();
