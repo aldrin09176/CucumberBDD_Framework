@@ -13,10 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ElementUtils {
 	
-	WebDriver driver;
+	private WebDriver driver;
 	
 	public ElementUtils(WebDriver driver) {
-		
 		this.driver = driver;
 		
 	}
@@ -31,7 +30,6 @@ public class ElementUtils {
 	public void typeTextIntoElement(WebElement element,String textToBeTyped,long durationInSeconds) {
 		
 		WebElement webElement = waitForElement(element,durationInSeconds);
-		webElement.click();
 		webElement.clear();
 		webElement.sendKeys(textToBeTyped);
 		
@@ -46,17 +44,11 @@ public class ElementUtils {
 	}
 	
 	public void acceptAlert(long durationInSeconds) {
-		
-		Alert alert = waitForAlert(durationInSeconds);
-		alert.accept();
-		
+		waitForAlert(durationInSeconds).accept();
 	}
 	
 	public void dismissAlert(long durationInSeconds) {
-		
-		Alert alert = waitForAlert(durationInSeconds);
-		alert.dismiss();
-		
+		waitForAlert(durationInSeconds).dismiss();
 	}
 	
 	public void mouseHoverAndClick(WebElement element,long durationInSeconds) {
@@ -98,7 +90,6 @@ public class ElementUtils {
 		}catch(Throwable e) {
 			return false;
 		}
-		
 	}
 	
 	
@@ -147,8 +138,4 @@ public class ElementUtils {
 		return webElement;
 		
 	}
-	
-	
-	
-	
 }

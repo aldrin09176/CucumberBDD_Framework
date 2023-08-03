@@ -1,6 +1,5 @@
 package hooks;
 
-import java.net.MalformedURLException;
 import java.util.Properties;
 
 import org.openqa.selenium.OutputType;
@@ -15,31 +14,41 @@ import utils.ConfigReader;
 
 public class MyHooks {
 	
-	WebDriver driver;
+
+	private WebDriver driver;
+    private Properties prop;
 
 	@Before
-	public void setup() throws MalformedURLException {
-		
-		Properties prop = new ConfigReader().intializeProperties();
-		driver = DriverFactory.initializeBrowser(prop.getProperty("browser"));
-		driver.get(prop.getProperty("url"));
-		
+	public void setup(Scenario scenario) throws Exception {
+        prop = initializeProperties();
+        String browserName = prop.getProperty("browser");
+        String url = prop.getProperty("url");
+
+        driver = DriverFactory.initializeBrowser(browserName);
+        driver.get(url);
+
 	}
-	
+
 	@After
 	public void tearDown(Scenario scenario) {
-		
+
 		String scenarioName = scenario.getName().replaceAll(" ","_");
-		
-		if(scenario.isFailed()) {
+
+		if (scenario.isFailed()) {
 			
-			byte[] srcScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(srcScreenshot,"image/png", scenarioName);
+			 byte[] srcScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			 scenario.attach(srcScreenshot,"image/png", scenarioName);
 		}
 		
-		driver.quit();
-		
-	
+        driver.quit();
 	}
+	
+    private Properties initializeProperties() {
+        return new ConfigReader().intializeProperties();
+    }
+    
+
+	
+	
 
 }

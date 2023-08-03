@@ -12,12 +12,14 @@ public class AccountPage {
 	
 	WebDriver driver;
 	private ElementUtils elementUtils;
+    private final int explicitWaitTime;
 	
 	public AccountPage(WebDriver driver) {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		elementUtils = new ElementUtils(driver);
+		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 		
 	}
 	
@@ -26,7 +28,7 @@ public class AccountPage {
 	
 	public boolean displayStatusOfEditYourAccountInformationOption() {
 		
-		return elementUtils.displayStatusOfElement(editYourAccountInformationOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.displayStatusOfElement(editYourAccountInformationOption,explicitWaitTime);
 	
 	}
 

@@ -7,8 +7,11 @@ import factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.AccountPage;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.SearchResultsPage;
+import utils.CommonUtils;
 
 public class Search {
 	
@@ -16,15 +19,12 @@ public class Search {
 	private HomePage homePage;
 	private SearchResultsPage searchResultsPage;
 	
-	@Given("User opens the Application")
-	public void user_opens_the_application() {
-		
+	
+	public Search() {
 		driver = DriverFactory.getDriver();
-		
 		homePage = new HomePage(driver);
 		searchResultsPage = new SearchResultsPage(driver);
-		
-	}
+    }
 
 	@When("User enters valid product {string} into Search box field")
 	public void user_enters_valid_product_into_search_box_field(String validProductText) {
@@ -57,7 +57,7 @@ public class Search {
 	@Then("User should get a message about no product matching")
 	public void user_should_get_a_message_about_no_product_matching() {
 	
-		Assert.assertEquals("There is no product that matches the search criteria.",searchResultsPage.getMessageText());
+		Assert.assertEquals("There is no product that matches the search criteria111.",searchResultsPage.getMessageText());
 		
 	}
 

@@ -10,8 +10,10 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.AccountPage;
 import pages.AccountSuccessPage;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.RegisterPage;
 import utils.CommonUtils;
 
@@ -23,19 +25,19 @@ public class Register {
 	private AccountSuccessPage accountSuccessPage;
 	private CommonUtils commonUtils;
 	
-	@Given("User navigates to Register Account page")
-	public void user_navigates_to_register_account_page() {
-		
+	
+	public Register() {
 		driver = DriverFactory.getDriver();
-		
 		homePage = new HomePage(driver);
 		registerPage = new RegisterPage(driver);
 		accountSuccessPage = new AccountSuccessPage(driver);
-		
-		
+		commonUtils = new CommonUtils();
+    }
+	
+	@Given("User navigates to Register Account page")
+	public void user_navigates_to_register_account_page() {
 		homePage.clickOnMyAccount();
-		homePage.selectRegisterOption();
-	    
+		homePage.selectRegisterOption(); 
 	}
 
 	@When("User enters the details into below fields")
@@ -45,7 +47,6 @@ public class Register {
 	    
 		registerPage.enterFirstName(dataMap.get("firstName"));
 		registerPage.enterLastName(dataMap.get("lastName"));
-		commonUtils = new CommonUtils();
 		registerPage.enterEmailAddress(commonUtils.getEmailWithTimeStamp());
 		registerPage.enterTelephoneNumber(dataMap.get("telephone"));
 		registerPage.enterPassword(dataMap.get("password"));
@@ -55,9 +56,9 @@ public class Register {
 	
 	@When("User enters the details into below fields with duplicate email")
 	public void user_enters_the_details_into_below_fields_with_duplicate_email(DataTable dataTable) {
-		
+	
 		Map<String, String> dataMap = dataTable.asMap(String.class,String.class);
-	    
+	  
 		registerPage.enterFirstName(dataMap.get("firstName"));
 		registerPage.enterLastName(dataMap.get("lastName"));
 		registerPage.enterEmailAddress(dataMap.get("email"));
@@ -69,9 +70,7 @@ public class Register {
 
 	@When("User selects Privacy Policy")
 	public void user_selects_privacy_policy() {
-	    
 		registerPage.selectPrivacyPolicy();
-		
 	}
 
 	@When("User clicks on Continue button")

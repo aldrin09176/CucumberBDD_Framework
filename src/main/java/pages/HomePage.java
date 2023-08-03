@@ -12,12 +12,14 @@ public class HomePage {
 	
 	WebDriver driver;
 	private ElementUtils elementUtils;
+    private final int explicitWaitTime;
 	
 	public HomePage(WebDriver driver) {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		elementUtils = new ElementUtils(driver);
+		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 		
 	}
 	
@@ -38,24 +40,24 @@ public class HomePage {
 	
 	public void clickOnMyAccount() {
 		
-		elementUtils.clickOnElement(myAccountDropMenu,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(myAccountDropMenu,explicitWaitTime);
 		
 	}
 	
 	public void selectLoginOption() {
 		
-		elementUtils.clickOnElement(loginOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(loginOption,explicitWaitTime);
 		
 	}
 	
 	public void selectRegisterOption() {
 		
-		elementUtils.clickOnElement(registerOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(registerOption,explicitWaitTime);
 	}
 	
 	public void clickOnSearchButton() {
 		
-		elementUtils.clickOnElement(searchButton,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(searchButton,explicitWaitTime);
 
 	}
 	

@@ -12,11 +12,13 @@ public class AccountSuccessPage {
 	
 	WebDriver driver;
 	private ElementUtils elementUtils;
+    private final int explicitWaitTime;
 	
 	public AccountSuccessPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		elementUtils = new ElementUtils(driver);
+		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 	}
 	
 	@FindBy(xpath="//div[@id='content']/h1")
@@ -24,7 +26,7 @@ public class AccountSuccessPage {
 	
 	public String getPageHeading() {
 		
-		return elementUtils.getTextFromElement(pageHeading,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.getTextFromElement(pageHeading,explicitWaitTime);
 		
 	}
 

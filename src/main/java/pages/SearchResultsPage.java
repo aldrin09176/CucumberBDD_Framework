@@ -12,12 +12,14 @@ public class SearchResultsPage {
 	
 	WebDriver driver;
 	private ElementUtils elementUtils;
+    private final int explicitWaitTime;
 	
 	public SearchResultsPage(WebDriver driver) {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		elementUtils = new ElementUtils(driver);
+		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 		
 	}
 	
@@ -29,13 +31,13 @@ public class SearchResultsPage {
 	
 	public boolean displayStatusOfValidProduct() {
 		
-		return elementUtils.displayStatusOfElement(validHPProduct,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.displayStatusOfElement(validHPProduct,explicitWaitTime);
 		
 	}
 	
 	public String getMessageText() {
 		
-		return elementUtils.getTextFromElement(messageText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.getTextFromElement(messageText,explicitWaitTime);
 		
 	}
 

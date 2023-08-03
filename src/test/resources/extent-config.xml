@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <!-- Document Title -->
+        <documentTitle>Automation Report</documentTitle>
+        <!-- Report Name - It will be visible on report header -->
+        <reportName>ExtentReports - Automation</reportName>
+        <!-- Theme of the report: standard, dark -->
+        <theme>dark</theme>
+        <!-- Enable or disable timeline -->
+        <timeline>true</timeline>
+        <!-- Location of the report -->
+        <encoding>UTF-8</encoding>
+        <!-- Protocol for resources -->
+        <protocol>http</protocol>
+        <!-- Path for custom report template -->
+        <!-- CSS -->
+        <css><![CDATA[
+            .report-name { padding-left: 10px; }
+            .report-headline { padding-left: 30px; }
+            /* Add more custom styles here */
+        ]]></css>
+        <!-- Custom JavaScript -->
+        <scripts><![CDATA[
+            // Add custom scripts here
+        ]]></scripts>
+    </configuration>
+</extentreports>

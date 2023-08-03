@@ -7,11 +7,8 @@ import java.util.Properties;
 public class ConfigReader {
 	
 	public Properties intializeProperties() {
-		
 		Properties prop = new Properties();
-		//Windows
-		//File proFile = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\config\\config.properties");
-		//Ubuntu
+		
 		File proFile = new File(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
 		
 		try {
