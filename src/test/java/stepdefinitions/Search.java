@@ -57,7 +57,7 @@ public class Search {
 	@Then("User should get a message about no product matching")
 	public void user_should_get_a_message_about_no_product_matching() {
 	
-		Assert.assertEquals("There is no product that matches the search criteria.",searchResultsPage.getMessageText());
+		Assert.assertEquals("There is no product that matches the search criteria11.",searchResultsPage.getMessageText());
 		
 	}
 
