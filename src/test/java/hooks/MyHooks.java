@@ -1,5 +1,7 @@
 package hooks;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import org.openqa.selenium.OutputType;
@@ -31,17 +33,25 @@ public class MyHooks {
 
 	@After
 	public void tearDown(Scenario scenario) {
-
-		String scenarioName = scenario.getName().replaceAll(" ","_");
-
+		
 		if (scenario.isFailed()) {
-			
+			  String scenarioName = formatScenarioName(scenario.getName());
 			 byte[] srcScreenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 			 scenario.attach(srcScreenshot,"image/png", scenarioName);
-		}
-		
-        driver.quit();
+
+			}
+    	driver.quit();
 	}
+	
+	
+    private String formatScenarioName(String name) {
+        String scenarioName = name.replaceAll(" ", "_");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
+        LocalDateTime now = LocalDateTime.now();
+        String dateAndTime = dtf.format(now);
+
+        return scenarioName + "_" + dateAndTime;
+    }
 	
     private Properties initializeProperties() {
         return new ConfigReader().intializeProperties();
