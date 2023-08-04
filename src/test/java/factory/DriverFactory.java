@@ -46,11 +46,10 @@ public class DriverFactory {
 	}
 
 	private static void initializeChrome() {
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless");
-//		options.addArguments("--window-size=1920,1080");
-//		driver = new ChromeDriver(options);
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		options.addArguments("--window-size=1920,1080");
+		driver = new ChromeDriver(options);
 	}
 
 	private static void configureDriver() {
