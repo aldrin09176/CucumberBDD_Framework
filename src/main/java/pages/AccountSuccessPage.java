@@ -9,25 +9,23 @@ import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class AccountSuccessPage {
-	
+
 	WebDriver driver;
 	private ElementUtils elementUtils;
-    private final int explicitWaitTime;
-	
+	private final int explicitWaitTime;
+
 	public AccountSuccessPage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 		elementUtils = new ElementUtils(driver);
 		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 	}
-	
-	@FindBy(xpath="//div[@id='content']/h1")
+
+	@FindBy(xpath = "//div[@id='content']/h1")
 	private WebElement pageHeading;
-	
+
 	public String getPageHeading() {
-		
-		return elementUtils.getTextFromElement(pageHeading,explicitWaitTime);
-		
+		return elementUtils.getTextFromElement(pageHeading, explicitWaitTime);
 	}
 
 }

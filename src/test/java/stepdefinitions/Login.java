@@ -21,15 +21,15 @@ public class Login {
 	private LoginPage loginPage;
 	private AccountPage accountPage;
 	private CommonUtils commonUtils;
-	
+
 	public Login() {
 		driver = DriverFactory.getDriver();
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		accountPage = new AccountPage(driver);
 		commonUtils = new CommonUtils();
-    }
-	
+	}
+
 	@Given("User navigates to login page")
 	public void user_navigates_to_login_page() {
 		homePage.clickOnMyAccount();
@@ -69,7 +69,8 @@ public class Login {
 
 	@Then("User should get a proper warning message about credentials mismatch")
 	public void user_should_get_a_proper_warning_message_about_credentials_mismatch() {
-		Assert.assertTrue(loginPage.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+		Assert.assertTrue(
+				loginPage.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
 	}
 
 	@When("User dont enter email address into email field")
@@ -81,6 +82,5 @@ public class Login {
 	public void user_dont_enter_password_into_password_field() {
 		loginPage.enterPassword("");
 	}
-
 
 }

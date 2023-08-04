@@ -39,7 +39,7 @@
 <a href="#"><span class="badge badge-primary">ExtentReports - Automation</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Aug 4, 2023 10:13:23 PM</span></a>
+<a href="#"><span class="badge badge-primary">Aug 5, 2023 03:51:51 AM</span></a>
 </li>
 </ul>
 </div>
@@ -56,9 +56,9 @@
 <span class="ico"><i class="fa fa-list"></i></span>
 </a>
 </li>
-<li class="nav-item dropdown" onclick="toggleView('exception-view')">
-<a id="nav-exception" class="dropdown-toggle" href="#">
-<span class="ico"><i class="fa fa-bug"></i></span>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
 </ul>
@@ -70,25 +70,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Aug 4, 2023 10:13:23 PM</h3>
+<h3>Aug 5, 2023 03:51:51 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Aug 4, 2023 10:14:36 PM</h3>
+<h3>Aug 5, 2023 03:52:23 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>2</h3>
+<h3>3</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -104,12 +104,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='66%'>
-<b>2</b> features passed
+<div><small data-tooltip='100%'>
+<b>3</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='33%'><b>1</b> features failed,
+<small data-tooltip='0%'><b>0</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -127,9 +127,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='85%'><b>12</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>6</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='14%'><b>2</b> scenarios failed,
+<small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -147,9 +147,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='97%'><b>65</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>28</b> steps passed</small></div>
 <div>
-<small data-tooltip='2%'><b>2</b> steps failed,
+<small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -166,28 +166,53 @@
 </div></div>
 <script>
 var timeline = {
-"Login functionality":36.818,"Registration functionality":23.422,"Search functionality":12.133
+"Login functionality":21.65,"Registration functionality":5.701,"Search functionality":3.882
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@SmokeTest</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@RegressionTest</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 </div>
 </div>
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 2,
-failParent: 1,
+passParent: 3,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 12,
-failChild: 2,
+passChild: 6,
+failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 65,
-failGrandChild: 2,
+passGrandChild: 28,
+failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
@@ -204,9 +229,14 @@ eventsCount: 5,
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@SmokeTest</a><a class="dropdown-item" href="#">@RegressionTest</a>
 </ul>
 </li>
 </ul>
@@ -219,7 +249,7 @@ eventsCount: 5,
           <div class="test-detail">
             <p class="name">Login functionality</p>
             <p class="text-sm">
-              <span>10:13:24 PM</span> / <span>00:00:36:818</span>
+              <span>3:51:52 AM</span> / <span>00:00:21:650</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -228,9 +258,9 @@ eventsCount: 5,
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Login functionality</h5>
-<span class='badge badge-success'>08.04.2023 10:13:24 PM</span>
-<span class='badge badge-danger'>08.04.2023 10:14:01 PM</span>
-<span class='badge badge-default'>00:00:36:818</span>
+<span class='badge badge-success'>08.05.2023 3:51:52 AM</span>
+<span class='badge badge-danger'>08.05.2023 3:52:14 AM</span>
+<span class='badge badge-default'>00:00:21:650</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -386,125 +416,17 @@ eventsCount: 5,
           </div>
         </div>
   </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="35"><span class="badge log pass-bg mr-2">Pass</span>Login with valid email and invalid password</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Login.user_navigates_to_login_page()">
-                <span>Given User navigates to login page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.User_enters_valid_email_address_into_email_field(java.lang.String)">
-                <span>When User enters valid email address "aldrin.sy@yahoo.com" into email field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_enters_invalid_password_into_password_field(java.lang.String)">
-                <span>And User enters invalid password "1234567890" into password field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_clicks_on_login_button()">
-                <span>And User clicks on Login button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_should_get_a_proper_warning_message_about_credentials_mismatch()">
-                <span>Then User should get a proper warning message about credentials mismatch</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="43"><span class="badge log pass-bg mr-2">Pass</span>Login with invalid email and valid password</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Login.user_navigates_to_login_page()">
-                <span>Given User navigates to login page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_enters_invalid_email_address_into_email_field()">
-                <span>When User enters invalid email address into email field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_enters_valid_password_into_password_field(java.lang.String)">
-                <span>And User enters valid password "12345" into password field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_clicks_on_login_button()">
-                <span>And User clicks on Login button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_should_get_a_proper_warning_message_about_credentials_mismatch()">
-                <span>Then User should get a proper warning message about credentials mismatch</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="51"><span class="badge log pass-bg mr-2">Pass</span>Login without providing any credentails</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Login.user_navigates_to_login_page()">
-                <span>Given User navigates to login page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_dont_enter_email_address_into_email_field()">
-                <span>When User dont enter email address into email field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_dont_enter_password_into_password_field()">
-                <span>And User dont enter password into password field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_clicks_on_login_button()">
-                <span>And User clicks on Login button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Login.user_should_get_a_proper_warning_message_about_credentials_mismatch()">
-                <span>Then User should get a proper warning message about credentials mismatch</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="59"
+        <li class="test-item"  status="pass" test-id="35"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Registration functionality</p>
             <p class="text-sm">
-              <span>10:14:01 PM</span> / <span>00:00:23:422</span>
+              <span>3:52:14 AM</span> / <span>00:00:05:701</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -513,10 +435,10 @@ eventsCount: 5,
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Registration functionality</h5>
-<span class='badge badge-success'>08.04.2023 10:14:01 PM</span>
-<span class='badge badge-danger'>08.04.2023 10:14:24 PM</span>
-<span class='badge badge-default'>00:00:23:422</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=59</span>
+<span class='badge badge-success'>08.05.2023 3:52:14 AM</span>
+<span class='badge badge-danger'>08.05.2023 3:52:19 AM</span>
+<span class='badge badge-default'>00:00:05:701</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=35</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -527,7 +449,7 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="60"><span class="badge log pass-bg mr-2">Pass</span>User creates an account only with mandatory fields</div>
+        <div class="node" id="36"><span class="badge log pass-bg mr-2">Pass</span>User creates an account only with mandatory fields</div>
       </div>
     </div>
         <div class="collapse">
@@ -556,123 +478,6 @@ eventsCount: 5,
               </div>
               <div class="step pass-bg" title="stepdefinitions.Register.user_account_should_get_created_successfully()">
                 <span>Then User account should get created successfully</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="68"><span class="badge log pass-bg mr-2">Pass</span>User creates an account with all fields</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Register.user_navigates_to_register_account_page()">
-                <span>Given User navigates to Register Account page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_enters_the_details_into_below_fields(io.cucumber.datatable.DataTable)">
-                <span>When User enters the details into below fields</span>
-      <div><table class='markup-table table '><tr><td>firstName</td><td>Aldrin</td></tr><tr><td>lastName</td><td>Sy</td></tr><tr><td>telephone</td><td>1234567890</td></tr><tr><td>password</td><td>12345</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_selects_yes_for_newsletter()">
-                <span>And User selects Yes for Newsletter</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_selects_privacy_policy()">
-                <span>And User selects Privacy Policy</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_clicks_on_continue_button()">
-                <span>And User clicks on Continue button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_account_should_get_created_successfully()">
-                <span>Then User account should get created successfully</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="77"><span class="badge log pass-bg mr-2">Pass</span>User creates a duplicate account</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Register.user_navigates_to_register_account_page()">
-                <span>Given User navigates to Register Account page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_enters_the_details_into_below_fields_with_duplicate_email(io.cucumber.datatable.DataTable)">
-                <span>When User enters the details into below fields with duplicate email</span>
-      <div><table class='markup-table table '><tr><td>firstName</td><td>Aldrin</td></tr><tr><td>lastName</td><td>Sy</td></tr><tr><td>email</td><td>aldrin.sy@yahoo.com</td></tr><tr><td>telephone</td><td>1234567890</td></tr><tr><td>password</td><td>12345</td></tr></table>
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_selects_yes_for_newsletter()">
-                <span>And User selects Yes for Newsletter</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_selects_privacy_policy()">
-                <span>And User selects Privacy Policy</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_clicks_on_continue_button()">
-                <span>And User clicks on Continue button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_should_get_a_proper_warning_about_duplicate_email()">
-                <span>Then User should get a proper warning about duplicate email</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="86"><span class="badge log pass-bg mr-2">Pass</span>User creates an account without filling any details</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Register.user_navigates_to_register_account_page()">
-                <span>Given User navigates to Register Account page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_dont_enter_any_details_into_fields()">
-                <span>When User dont enter any details into fields</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_clicks_on_continue_button()">
-                <span>And User clicks on Continue button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Register.user_should_get_proper_warning_messages_for_every_mandatory_field()">
-                <span>Then User should get proper warning messages for every mandatory field</span>
       <div>
       </div>
               </div>
@@ -682,26 +487,26 @@ eventsCount: 5,
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="93"
+        <li class="test-item"  status="pass" test-id="44"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Search functionality</p>
             <p class="text-sm">
-              <span>10:14:24 PM</span> / <span>00:00:12:133</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>3:52:19 AM</span> / <span>00:00:03:882</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">Search functionality</h5>
-<span class='badge badge-success'>08.04.2023 10:14:24 PM</span>
-<span class='badge badge-danger'>08.04.2023 10:14:36 PM</span>
-<span class='badge badge-default'>00:00:12:133</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=93</span>
+<h5 class="test-status text-pass">Search functionality</h5>
+<span class='badge badge-success'>08.05.2023 3:52:19 AM</span>
+<span class='badge badge-danger'>08.05.2023 3:52:23 AM</span>
+<span class='badge badge-default'>00:00:03:882</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=44</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
 </div>
@@ -712,7 +517,7 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="94"><span class="badge log pass-bg mr-2">Pass</span>User searches for a valid product</div>
+        <div class="node" id="45"><span class="badge log pass-bg mr-2">Pass</span>User searches for a valid product</div>
       </div>
     </div>
         <div class="collapse">
@@ -735,100 +540,6 @@ eventsCount: 5,
           </div>
         </div>
   </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="100"><span class="badge log fail-bg mr-2">Fail</span>User searches for an invalid product</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Search.user_enters_invalid_product_into_search_box_field(java.lang.String)">
-                <span>When User enters invalid product "Honda" into Search box field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Search.user_clicks_on_search_button()">
-                <span>And User clicks on Search button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step fail-bg" title="stepdefinitions.Search.user_should_get_a_message_about_no_product_matching()">
-                <span>Then User should get a message about no product matching</span>
-      <div>
-        <textarea disabled class="code-block">org.junit.ComparisonFailure: expected:<... the search criteria[11].> but was:<... the search criteria[].>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at stepdefinitions.Search.user_should_get_a_message_about_no_product_matching(Search.java:60)
-	at ✽.User should get a message about no product matching(file:///C:/Users/aldri/Desktop/Repositories/CucumberBDD_Framework/src/test/resources/features/Search.feature:11)
-</textarea>
-      
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER">
-                <span>hooks.MyHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>User_searches_for_an_invalid_product_2023_08_04_22_14_32
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="106"><span class="badge log fail-bg mr-2">Fail</span>User searches without any product</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="">
-          <div class="card-body">
-              <div class="step pass-bg" title="stepdefinitions.Search.user_dont_enter_any_product_name_into_search_box_field()">
-                <span>When User dont enter any product name into Search box field</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="stepdefinitions.Search.user_clicks_on_search_button()">
-                <span>And User clicks on Search button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step fail-bg" title="stepdefinitions.Search.user_should_get_a_message_about_no_product_matching()">
-                <span>Then User should get a message about no product matching</span>
-      <div>
-        <textarea disabled class="code-block">org.junit.ComparisonFailure: expected:<... the search criteria[11].> but was:<... the search criteria[].>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at stepdefinitions.Search.user_should_get_a_message_about_no_product_matching(Search.java:60)
-	at ✽.User should get a message about no product matching(file:///C:/Users/aldri/Desktop/Repositories/CucumberBDD_Framework/src/test/resources/features/Search.feature:16)
-</textarea>
-      
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER">
-                <span>hooks.MyHooks.tearDown(io.cucumber.java.Scenario)</span>
-      <div>User_searches_without_any_product_2023_08_04_22_14_36
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../screenshots/embedded2.png' src="../screenshots/embedded2.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
 </div>
           </div>
         </li>
@@ -841,26 +552,26 @@ eventsCount: 5,
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-wrapper row view category-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>2</span>
+<span class='badge log pass-bg'>6</span>
 </span>
-<p class="name">org.junit.ComparisonFailure</p>
-<p class="duration text-sm">2 tests</p>
+<p class="name">@SmokeTest</p>
+<p class="duration text-sm">6 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>org.junit.ComparisonFailure</h4>
-<span status="fail" class='badge log badge-danger'>2 failed</span>
+<h4>@SmokeTest</h4>
+<span status="pass" class='badge log pass-bg'>6 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -871,23 +582,149 @@ eventsCount: 5,
 </tr>
 </thead>
 <tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>22:14:32 PM</td>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:51:52 AM</td>
 <td>
-<a href="#" class="linked" test-id='93' id='104'>Then User should get a message about no product matching</a>
+<a href="#" class="linked" test-id='1' id='3'>Login with valid credentials</a>
 <div class="">
-<span class="badge badge-default">Search functionality.User searches for an invalid product.Then User should get a message about no product matching</span>
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>22:14:36 PM</td>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:51:59 AM</td>
 <td>
-<a href="#" class="linked" test-id='93' id='110'>Then User should get a message about no product matching</a>
+<a href="#" class="linked" test-id='1' id='11'>Login with valid credentials</a>
 <div class="">
-<span class="badge badge-default">Search functionality.User searches without any product.Then User should get a message about no product matching</span>
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:04 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='19'>Login with valid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:09 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='27'>Login with invalid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:14 AM</td>
+<td>
+<a href="#" class="linked" test-id='35' id='36'>User creates an account only with mandatory fields</a>
+<div class="">
+<span class="badge badge-default">Registration functionality.User creates an account only with mandatory fields</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:19 AM</td>
+<td>
+<a href="#" class="linked" test-id='44' id='45'>User searches for a valid product</a>
+<div class="">
+<span class="badge badge-default">Search functionality.User searches for a valid product</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>6</span>
+</span>
+<p class="name">@RegressionTest</p>
+<p class="duration text-sm">6 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@RegressionTest</h4>
+<span status="pass" class='badge log pass-bg'>6 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:51:52 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>Login with valid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:51:59 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='11'>Login with valid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:04 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='19'>Login with valid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:09 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='27'>Login with invalid credentials</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credentials</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:14 AM</td>
+<td>
+<a href="#" class="linked" test-id='35' id='36'>User creates an account only with mandatory fields</a>
+<div class="">
+<span class="badge badge-default">Registration functionality.User creates an account only with mandatory fields</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>03:52:19 AM</td>
+<td>
+<a href="#" class="linked" test-id='44' id='45'>User searches for a valid product</a>
+<div class="">
+<span class="badge badge-default">Search functionality.User searches for a valid product</span>
 </div>
 </td>
 </tr>

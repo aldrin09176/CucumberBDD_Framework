@@ -14,56 +14,53 @@ import utils.CommonUtils;
 public class DriverFactory {
 
 	private static WebDriver driver = null;
-	
-    public enum BrowserType {
-        CHROME,
-        FIREFOX,
-        EDGE,
-        SAFARI
-    }
+
+	public enum BrowserType {
+		CHROME, 
+		FIREFOX, 
+		EDGE, 
+		SAFARI
+	}
 
 	public static WebDriver initializeBrowser(String browserName) {
 		BrowserType browserType = BrowserType.valueOf(browserName.toUpperCase());
 
-	
-        switch (browserType) {
-        	case CHROME:
-        		initializeChrome();
-        		break;
-        	case FIREFOX:
-        		driver = new FirefoxDriver();
-        		break;
-        	case EDGE:
-        		driver = new EdgeDriver();
-        		break;
-        	case SAFARI:
-        		driver = new SafariDriver();
-        		break;
-        	default:
-        		throw new IllegalArgumentException("Browser Type Not Supported");
-    }
-        configureDriver();
+		switch (browserType) {
+		case CHROME:
+			initializeChrome();
+			break;
+		case FIREFOX:
+			driver = new FirefoxDriver();
+			break;
+		case EDGE:
+			driver = new EdgeDriver();
+			break;
+		case SAFARI:
+			driver = new SafariDriver();
+			break;
+		default:
+			throw new IllegalArgumentException("Browser Type Not Supported");
+		}
+		configureDriver();
 		return driver;
-
 	}
-	
-    private static void initializeChrome() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("window-size=1920,1080");
-        driver = new ChromeDriver(options);
-    }
-	
+
+	private static void initializeChrome() {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("headless");
+		options.addArguments("window-size=1920,1080");
+		driver = new ChromeDriver(options);
+	}
+
 	private static void configureDriver() {
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(CommonUtils.PAGE_LOAD_TIME));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(CommonUtils.IMPLICIT_WAIT_TIME));
-    }
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(CommonUtils.PAGE_LOAD_TIME));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(CommonUtils.IMPLICIT_WAIT_TIME));
+	}
 
 	public static WebDriver getDriver() {
 		return driver;
-
 	}
 
 }

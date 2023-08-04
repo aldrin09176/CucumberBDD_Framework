@@ -12,51 +12,41 @@ public class LoginPage {
 
 	WebDriver driver;
 	private ElementUtils elementUtils;
-    private final int explicitWaitTime;
+	private final int explicitWaitTime;
 
 	public LoginPage(WebDriver driver) {
-
 		this.driver = driver;
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 		elementUtils = new ElementUtils(driver);
 		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
-
 	}
 
-	@FindBy(id="input-email")
+	@FindBy(id = "input-email")
 	private WebElement emailField;
 
-	@FindBy(id="input-password")
+	@FindBy(id = "input-password")
 	private WebElement passwordField;
 
-	@FindBy(xpath="//input[@value='Login']")
+	@FindBy(xpath = "//input[@value='Login']")
 	private WebElement loginButton;
 
-	@FindBy(xpath="//div[contains(@class,'alert-dismissible')]")
+	@FindBy(xpath = "//div[contains(@class,'alert-dismissible')]")
 	private WebElement warningMessage;
 
 	public void enterEmailAddress(String emailText) {
-
-		elementUtils.typeTextIntoElement(emailField, emailText,explicitWaitTime);
-
+		elementUtils.typeTextIntoElement(emailField, emailText, explicitWaitTime);
 	}
 
 	public void enterPassword(String passwordText) {
-
-		elementUtils.typeTextIntoElement(passwordField, passwordText,explicitWaitTime);
-
+		elementUtils.typeTextIntoElement(passwordField, passwordText, explicitWaitTime);
 	}
 
 	public void clickOnLoginButton() {
-
-		elementUtils.clickOnElement(loginButton,explicitWaitTime);
-
+		elementUtils.clickOnElement(loginButton, explicitWaitTime);
 	}
 
 	public String getWarningMessageText() {
-
-		return elementUtils.getTextFromElement(warningMessage,explicitWaitTime);
-
+		return elementUtils.getTextFromElement(warningMessage, explicitWaitTime);
 	}
 
 }
