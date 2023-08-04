@@ -27,7 +27,7 @@ public class DriverFactory {
 
 		switch (browserType) {
 		case CHROME:
-			initializeChrome();
+				initializeChrome();
 			break;
 		case FIREFOX:
 			driver = new FirefoxDriver();
@@ -46,10 +46,11 @@ public class DriverFactory {
 	}
 
 	private static void initializeChrome() {
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("headless");
-		options.addArguments("window-size=1920,1080");
-		driver = new ChromeDriver(options);
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--headless");
+//		options.addArguments("--window-size=1920,1080");
+//		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
 	}
 
 	private static void configureDriver() {
