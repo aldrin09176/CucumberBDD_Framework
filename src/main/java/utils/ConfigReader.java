@@ -1,24 +1,36 @@
 package utils;
 
-import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
 
-	public Properties intializeProperties() {
+	private static final String MAIN_PROPERTY_PATH = "./src/test/resources/config/config.properties";
+	
+	private static String getProperty(String key, String path) {
 		Properties prop = new Properties();
-
-		File proFile = new File(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
-
 		try {
-			FileInputStream fis = new FileInputStream(proFile);
-			prop.load(fis);
-		} 
-		catch (Throwable e) {
-			e.printStackTrace();
+			prop.load(new FileInputStream(path));
+		} catch(IOException e) {
+			System.out.println("Could not read property " + key + " from " + path + ". Error: " + e.getMessage());
+			return null;
 		}
-		return prop;
-		
+		return prop.getProperty(key);
 	}
+	
+	public static String getBrowser() {
+		return getProperty("browser",MAIN_PROPERTY_PATH);
+	}
+	
+	public static String getUrl() {
+		return getProperty("url",MAIN_PROPERTY_PATH);
+	}
+	
+	
+	
+	
+	
+	
+	
 }

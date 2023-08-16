@@ -10,10 +10,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.AccountPage;
 import pages.AccountSuccessPage;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.RegisterPage;
 import utils.CommonUtils;
 

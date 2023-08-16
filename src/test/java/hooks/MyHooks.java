@@ -17,21 +17,15 @@ import utils.ConfigReader;
 public class MyHooks {
 
 	private WebDriver driver;
-	private Properties prop;
 
 	@Before
 	public void setup(Scenario scenario) throws Exception {
-		prop = initializeProperties();
-		String browserName = prop.getProperty("browser");
-		String url = prop.getProperty("url");
-
-		driver = DriverFactory.initializeBrowser(browserName);
-		driver.get(url);
+		driver = DriverFactory.initializeBrowser(ConfigReader.getBrowser());
+		driver.get(ConfigReader.getUrl());
 	}
 
 	@After
 	public void tearDown(Scenario scenario) {
-
 		if (scenario.isFailed()) {
 			String scenarioName = formatScenarioName(scenario.getName());
 			byte[] srcScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
@@ -48,9 +42,4 @@ public class MyHooks {
 		
 		return scenarioName + "_" + dateAndTime;
 	}
-
-	private Properties initializeProperties() {
-		return new ConfigReader().intializeProperties();
-	}
-
 }

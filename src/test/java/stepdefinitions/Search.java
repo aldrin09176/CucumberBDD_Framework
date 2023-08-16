@@ -4,14 +4,10 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import factory.DriverFactory;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.AccountPage;
 import pages.HomePage;
-import pages.LoginPage;
 import pages.SearchResultsPage;
-import utils.CommonUtils;
 
 public class Search {
 
