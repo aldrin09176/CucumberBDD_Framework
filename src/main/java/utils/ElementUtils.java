@@ -157,6 +157,15 @@ public class ElementUtils {
 		}
 	}
 	
+	public void switchToIframe(WebElement element, long durationInSeconds) {
+		WebElement webElement = waitForElement(element, durationInSeconds);
+		driver.switchTo().frame(webElement);
+	}
+	
+	public void switchToDefaultContent() {
+		driver.switchTo().defaultContent();
+	}
+	
 	///////////
 	public WebElement waitForElement(WebElement element, long durationInSeconds) {
 
@@ -184,9 +193,7 @@ public class ElementUtils {
     }
 
 	public Alert waitForAlert(long durationInSeconds) {
-
 		Alert alert = null;
-
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationInSeconds));
 			alert = wait.until(ExpectedConditions.alertIsPresent());
@@ -198,9 +205,7 @@ public class ElementUtils {
 	}
 
 	public WebElement waitForVisibilityOfElement(WebElement element, long durationInSeconds) {
-
 		WebElement webElement = null;
-
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationInSeconds));
 			webElement = wait.until(ExpectedConditions.visibilityOf(element));
