@@ -1,6 +1,7 @@
 package utils;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -29,6 +30,24 @@ public class ElementUtils {
 	public void clickOnElement(WebElement element, long durationInSeconds) {
 		WebElement webElement = waitForElement(element, durationInSeconds);
 		webElement.click();
+	}
+	
+//	Ginagamit to if may pare-parehong element tapos gusto mo lang i-click yung specific TEXT. Usually sa headers.
+//	Pag gagamitin to. Dapat pag nag declare ng FindBy sa Page Class, dapat naka List<WebElement>.
+//	Example ng pag declare ng Find By:
+//	FindBy(css = "span.rtsTxt")
+//	public List<WebElement> headerList 
+//	Example sa pag create naman ng Method:
+//	public void clickHeader(String text) {
+//		elementUtils.clickOnText(headerList, text, explicitWaitTime);
+//	}
+	public void clickOnText(List<WebElement> elements, String text, long durationInSeconds) {
+		List<WebElement> visibleElements = waitForElements(elements, durationInSeconds);
+		for (WebElement webElement : visibleElements) {
+	        if(webElement.getText().equals(text)) {
+	            webElement.click();
+	            break; }	
+		}
 	}
 
 	public void typeTextIntoElement(WebElement element, String textToBeTyped, long durationInSeconds) {
@@ -152,6 +171,17 @@ public class ElementUtils {
 		}
 		return webElement;
 	}
+	
+    public List<WebElement> waitForElements(List<WebElement> elements, long durationInSeconds) {
+        List<WebElement> webElements = null;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationInSeconds));
+            webElements = wait.until(ExpectedConditions.visibilityOfAllElements(elements));
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return webElements;
+    }
 
 	public Alert waitForAlert(long durationInSeconds) {
 
