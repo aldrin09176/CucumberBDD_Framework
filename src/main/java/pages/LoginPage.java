@@ -22,16 +22,16 @@ public class LoginPage {
 	}
 
 	@FindBy(id = "input-email")
-	private WebElement emailField;
+	public WebElement emailField;
 
 	@FindBy(id = "input-password")
-	private WebElement passwordField;
+	public WebElement passwordField;
 
 	@FindBy(xpath = "//input[@value='Login']")
-	private WebElement loginButton;
+	public WebElement loginButton;
 
 	@FindBy(xpath = "//div[contains(@class,'alert-dismissible')]")
-	private WebElement warningMessage;
+	public WebElement warningMessage;
 
 	public void enterEmailAddress(String emailText) {
 		elementUtils.typeTextIntoElement(emailField, emailText, explicitWaitTime);
@@ -45,8 +45,8 @@ public class LoginPage {
 		elementUtils.clickOnElement(loginButton, explicitWaitTime);
 	}
 
-	public String getWarningMessageText() {
-		return elementUtils.getTextFromElement(warningMessage, explicitWaitTime);
+	public boolean getWarningMessageText(String text) {
+		return elementUtils.displayStatusOfText(warningMessage, text, explicitWaitTime);
 	}
 
 }

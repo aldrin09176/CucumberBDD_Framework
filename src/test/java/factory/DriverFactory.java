@@ -1,15 +1,16 @@
 package factory;
 
-import java.time.Duration;
-
+import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariDriver;
-
-import utils.CommonUtils;
+import utils.ConfigReader;
 
 public class DriverFactory {
 
@@ -19,44 +20,71 @@ public class DriverFactory {
 		CHROME, 
 		FIREFOX, 
 		EDGE, 
-		SAFARI
+		SAFARI,
+		IE
 	}
 
-	public static WebDriver initializeBrowser(String browserName) {
+	public static WebDriver initializeBrowser(String browserName) throws Exception, IOException {
 		BrowserType browserType = BrowserType.valueOf(browserName.toUpperCase());
 
 		switch (browserType) {
 		case CHROME:
-				initializeChrome();
+			initializeChrome();
 			break;
 		case FIREFOX:
 			driver = new FirefoxDriver();
 			break;
 		case EDGE:
-			driver = new EdgeDriver();
+			initEdgeDriver();
 			break;
 		case SAFARI:
 			driver = new SafariDriver();
 			break;
+		case IE:
+			initIEPermissionVBScript();
+			initializeIEDriver();
+			break;
 		default:
 			throw new IllegalArgumentException("Browser Type Not Supported");
 		}
-		configureDriver();
 		return driver;
 	}
 
 	private static void initializeChrome() {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
+		//options.addArguments("--headless");
 		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--ignore-ssl-errors=yes","--ignore-certificate-errors");
 		driver = new ChromeDriver(options);
 	}
-
-	private static void configureDriver() {
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(CommonUtils.PAGE_LOAD_TIME));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(CommonUtils.IMPLICIT_WAIT_TIME));
+	
+	private static void initEdgeDriver() {
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--ignore-ssl-errors=yes","--ignore-certificate-errors");
+		driver = new EdgeDriver(options);
+	}
+	
+	private static void initializeIEDriver() {
+		System.setProperty("webdriver.ie.driver", ConfigReader.getIEDriverPath());
+		InternetExplorerOptions options = new InternetExplorerOptions();
+		options.attachToEdgeChrome();
+		//options.withEdgeExecutablePath(ConfigReader.getIEDriverPath());
+		driver = new InternetExplorerDriver(options);
+	}
+	
+	private static void initIEPermissionVBScript() throws InterruptedException, IOException {
+		String[] command = {"cscript", ConfigReader.getIESecurityScriptPath()};
+		Process process = Runtime.getRuntime().exec(command);
+		process.waitFor();
+		int exitValue = process.exitValue();
+			if(exitValue !=0) {
+				// Handle Error
+				System.out.println("VBScript execution failed with exit code: " + exitValue);
+			} else {
+				System.out.println("VBScript executed successfully");
+			}
+		
 	}
 
 	public static WebDriver getDriver() {

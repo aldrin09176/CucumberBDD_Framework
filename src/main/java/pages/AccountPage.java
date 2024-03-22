@@ -21,12 +21,16 @@ public class AccountPage {
 		elementUtils = new ElementUtils(driver);
 		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 	}
-
+	//This Element is being use in Assertion on Login.Java
 	@FindBy(linkText = "Edit your account information")
-	private WebElement editYourAccountInformationOption;
-
-	public boolean displayStatusOfEditYourAccountInformationOption() {
-		return elementUtils.displayStatusOfElement(editYourAccountInformationOption, explicitWaitTime);
+	public WebElement editYourAccountInformationOption;
+	
+	@FindBy(xpath = "//a[normalize-space()='Edit Account']")
+	public WebElement editAccountOption;
+	
+	public void clickEditAccountOption() {
+		elementUtils.clickOnElement(editAccountOption, explicitWaitTime);
 	}
+
 
 }

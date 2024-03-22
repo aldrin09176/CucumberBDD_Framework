@@ -22,7 +22,7 @@ public class AccountSuccessPage {
 	}
 
 	@FindBy(xpath = "//div[@id='content']/h1")
-	private WebElement pageHeading;
+	public WebElement pageHeading;
 
 	public String getPageHeading() {
 		return elementUtils.getTextFromElement(pageHeading, explicitWaitTime);

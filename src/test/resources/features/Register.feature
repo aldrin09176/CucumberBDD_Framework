@@ -37,7 +37,7 @@ When User enters the details into below fields with duplicate email
 And User selects Yes for Newsletter
 And User selects Privacy Policy
 And User clicks on Continue button
-Then User should get a proper warning about duplicate email
+Then User should get this warning "Warning: E-Mail Address is already registered!" about duplicate email
 
 @RegressionTest
 Scenario: User creates an account without filling any details

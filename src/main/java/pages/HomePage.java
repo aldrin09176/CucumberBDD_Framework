@@ -22,19 +22,19 @@ public class HomePage {
 	}
 
 	@FindBy(xpath = "//span[text()='My Account']")
-	private WebElement myAccountDropMenu;
+	public WebElement myAccountDropMenu;
 
 	@FindBy(linkText = "Login")
-	private WebElement loginOption;
+	public WebElement loginOption;
 
 	@FindBy(linkText = "Register")
-	private WebElement registerOption;
+	public WebElement registerOption;
 
 	@FindBy(name = "search")
-	private WebElement searchBoxField;
+	public WebElement searchBoxField;
 
 	@FindBy(xpath = "//button[contains(@class,'btn-default')]")
-	private WebElement searchButton;
+	public WebElement searchButton;
 
 	public void clickOnMyAccount() {
 		elementUtils.clickOnElement(myAccountDropMenu, explicitWaitTime);

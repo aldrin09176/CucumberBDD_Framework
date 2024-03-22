@@ -17,56 +17,71 @@
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
     <maven.compiler.release>17</maven.compiler.release>
+    <!-- Dependency Versions -->
+    <junit.version>4.11</junit.version>
+    <cucumber.version>7.12.1</cucumber.version>
+    <cucumber-gherkin.version>26.0.3</cucumber-gherkin.version>
+    <selenium.version>4.18.1</selenium.version>
+    <lombok.version>1.18.28</lombok.version>
+    <!-- Plugin Versions -->
+    <maven-clean-plugin.version>3.3.1</maven-clean-plugin.version>
+    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+    <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+    <maven-install-plugin.version>3.1.1</maven-install-plugin.version>
+    <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+    <maven-site-plugin.version>4.0.0-M9</maven-site-plugin.version>
+    <maven-project-info-reports-plugin.version>3.4.5</maven-project-info-reports-plugin.version>
+    <!-- Plugin Versions -->
+    <extent.report.version>1.14.0</extent.report.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
 	<dependency>
 	    <groupId>io.cucumber</groupId>
 	    <artifactId>cucumber-java</artifactId>
-	    <version>7.12.1</version>
+	    <version>${cucumber.version}</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 	<dependency>
 	    <groupId>io.cucumber</groupId>
 	    <artifactId>cucumber-junit</artifactId>
-	    <version>7.12.1</version>
+	    <version>${cucumber.version}</version>
 	    <scope>test</scope>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
 	<dependency>
 	    <groupId>io.cucumber</groupId>
 	    <artifactId>cucumber-core</artifactId>
-	    <version>7.12.1</version>
+	    <version>${cucumber.version}</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 	<dependency>
 	    <groupId>org.seleniumhq.selenium</groupId>
 	    <artifactId>selenium-java</artifactId>
-	    <version>4.11.0</version>
+	    <version>${selenium.version}</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
 	<dependency>
 	    <groupId>tech.grasshopper</groupId>
 	    <artifactId>extentreports-cucumber7-adapter</artifactId>
-	    <version>1.13.0</version>
+	    <version>${extent.report.version}</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 	<dependency>
 	    <groupId>org.projectlombok</groupId>
 	    <artifactId>lombok</artifactId>
-	    <version>1.18.28</version>
+	    <version>${lombok.version}</version>
 	    <scope>provided</scope>
 	</dependency>
-
-
-
   </dependencies>
 
   <build>
@@ -75,41 +90,41 @@
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>${maven-clean-plugin.version}</version>
         </plugin>
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>${maven-resources-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.11.0</version>
+          <version>${maven-compiler-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.1.2</version>
+          <version>${maven-surefire-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>${maven-jar-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>${maven-install-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>${maven-deploy-plugin.version}</version>
         </plugin>
         <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
-          <version>4.0.0-M9</version>
+          <version>${maven-site-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.4.5</version>
+          <version>${maven-project-info-reports-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>

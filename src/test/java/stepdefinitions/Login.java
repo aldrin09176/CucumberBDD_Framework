@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AccountPage;
+import pages.CommonPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.CommonUtils;
@@ -20,13 +21,15 @@ public class Login {
 	private LoginPage loginPage;
 	private AccountPage accountPage;
 	private CommonUtils commonUtils;
+	private CommonPage commonPage;
 
 	public Login() {
 		driver = DriverFactory.getDriver();
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		accountPage = new AccountPage(driver);
-		commonUtils = new CommonUtils();
+		commonUtils = new CommonUtils(driver);
+		commonPage = new CommonPage(driver);
 	}
 
 	@Given("User navigates to login page")
@@ -52,12 +55,12 @@ public class Login {
 
 	@Then("User should get successfully logged in")
 	public void user_should_get_successfully_logged_in() {
-		Assert.assertTrue(accountPage.displayStatusOfEditYourAccountInformationOption());
+		Assert.assertTrue(commonUtils.isElementDisplayed(accountPage.editYourAccountInformationOption));
 	}
 
 	@When("User enters invalid email address into email field")
 	public void user_enters_invalid_email_address_into_email_field() {
-		loginPage.enterEmailAddress(commonUtils.getEmailWithTimeStamp());
+		loginPage.enterEmailAddress(commonPage.getEmailWithTimeStamp());
 
 	}
 
@@ -66,10 +69,9 @@ public class Login {
 		loginPage.enterPassword(invalidPasswordText);
 	}
 
-	@Then("User should get a proper warning message about credentials mismatch")
-	public void user_should_get_a_proper_warning_message_about_credentials_mismatch() {
-		Assert.assertTrue(
-				loginPage.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+	@Then("User should see this warning message {string} regarding about credentials mismatch")
+	public void user_should_get_a_proper_warning_message_about_credentials_mismatch(String text) {
+		Assert.assertTrue(loginPage.getWarningMessageText(text));
 	}
 
 	@When("User dont enter email address into email field")

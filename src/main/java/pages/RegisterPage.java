@@ -22,49 +22,49 @@ public class RegisterPage {
 	}
 
 	@FindBy(id = "input-firstname")
-	private WebElement firstNameField;
+	public WebElement firstNameField;
 
 	@FindBy(id = "input-lastname")
-	private WebElement lastNameField;
+	public WebElement lastNameField;
 
 	@FindBy(id = "input-email")
-	private WebElement emailField;
+	public WebElement emailField;
 
 	@FindBy(id = "input-telephone")
-	private WebElement telephoneField;
+	public WebElement telephoneField;
 
 	@FindBy(id = "input-password")
-	private WebElement passwordField;
+	public WebElement passwordField;
 
 	@FindBy(id = "input-confirm")
-	private WebElement passwordConfirmField;
+	public WebElement passwordConfirmField;
 
 	@FindBy(name = "agree")
-	private WebElement privacyPolicyOption;
+	public WebElement privacyPolicyOption;
 
 	@FindBy(xpath = "//input[@value='Continue']")
-	private WebElement continueButton;
+	public WebElement continueButton;
 
 	@FindBy(xpath = "//input[@name='newsletter'][@value='1']")
-	private WebElement YesNewsletterOption;
+	public WebElement YesNewsletterOption;
 
 	@FindBy(xpath = "//div[contains(@class,'alert-dismissible')]")
-	private WebElement warningMessage;
+	public WebElement warningMessage;
 
 	@FindBy(xpath = "//input[@id='input-firstname']/following-sibling::div")
-	private WebElement firstNameWarning;
+	public WebElement firstNameWarning;
 
 	@FindBy(xpath = "//input[@id='input-lastname']/following-sibling::div")
-	private WebElement lastNameWaring;
+	public WebElement lastNameWaring;
 
 	@FindBy(xpath = "//input[@id='input-email']/following-sibling::div")
-	private WebElement emailWarning;
+	public WebElement emailWarning;
 
 	@FindBy(xpath = "//input[@id='input-telephone']/following-sibling::div")
-	private WebElement telephoneWarning;
+	public WebElement telephoneWarning;
 
 	@FindBy(xpath = "//input[@id='input-password']/following-sibling::div")
-	private WebElement passwordWarning;
+	public WebElement passwordWarning;
 
 	public void enterFirstName(String firstNameText) {
 		elementUtils.typeTextIntoElement(firstNameField, firstNameText, explicitWaitTime);
@@ -102,10 +102,10 @@ public class RegisterPage {
 		elementUtils.clickOnElement(YesNewsletterOption, explicitWaitTime);
 	}
 
-	public String getWarningMessageText() {
-		return elementUtils.getTextFromElement(warningMessage, explicitWaitTime);
+	public boolean getWarningMessageText(String text) {
+		return elementUtils.displayStatusOfText(warningMessage, text, explicitWaitTime);
 	}
-
+	
 	public String getFirstNameWarning() {
 		return elementUtils.getTextFromElement(firstNameWarning, explicitWaitTime);
 	}

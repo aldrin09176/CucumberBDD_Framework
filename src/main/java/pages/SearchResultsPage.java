@@ -22,14 +22,14 @@ public class SearchResultsPage {
 	}
 
 	@FindBy(linkText = "HP LP3065")
-	private WebElement validHPProduct;
+	public WebElement validHPProduct;
 
 	@FindBy(xpath = "//input[@id='button-search']/following-sibling::p")
-	private WebElement messageText;
+	public WebElement messageText;
 
-	public boolean displayStatusOfValidProduct() {
-		return elementUtils.displayStatusOfElement(validHPProduct, explicitWaitTime);
-	}
+//	public boolean displayStatusOfValidProduct() {
+//		return elementUtils.displayStatusOfElement(validHPProduct, explicitWaitTime);
+//	}
 
 	public String getMessageText() {
 		return elementUtils.getTextFromElement(messageText, explicitWaitTime);
