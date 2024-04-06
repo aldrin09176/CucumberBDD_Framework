@@ -9,20 +9,19 @@ import io.cucumber.java.en.When;
 import pages.CommonPage;
 import pages.HomePage;
 import pages.SearchResultsPage;
-import utils.CommonUtils;
 
 public class Search {
 
 	WebDriver driver;
 	private HomePage homePage;
 	private SearchResultsPage searchResultsPage;
-	private CommonUtils commonUtils;
+	private CommonPage commonPage;
 
 	public Search() {
 		driver = DriverFactory.getDriver();
 		homePage = new HomePage(driver);
 		searchResultsPage = new SearchResultsPage(driver);
-		commonUtils = new CommonUtils(driver);
+		commonPage = new CommonPage(driver);
 	}
 
 	@When("User enters valid product {string} into Search box field")
@@ -37,7 +36,7 @@ public class Search {
 
 	@Then("User should get valid product displayed in search results")
 	public void user_should_get_valid_product_displayed_in_search_results() {
-		Assert.assertTrue(commonUtils.isElementDisplayed(searchResultsPage.messageText));
+		Assert.assertTrue(commonPage.isElementDisplayed(searchResultsPage.messageText));
 	}
 
 	@When("User enters invalid product {string} into Search box field")

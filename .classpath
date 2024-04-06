@@ -29,23 +29,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/aldri/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.18.1/selenium-ie-driver-4.18.1.jar" sourcepath="C:/Users/aldri/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/4.18.1/selenium-ie-driver-4.18.1-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
-			<attribute name="maven.artifactId" value="selenium-ie-driver"/>
-			<attribute name="maven.version" value="4.18.1"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/aldri/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.18.1/selenium-edge-driver-4.18.1.jar" sourcepath="C:/Users/aldri/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/4.18.1/selenium-edge-driver-4.18.1-sources.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.seleniumhq.selenium"/>
-			<attribute name="maven.artifactId" value="selenium-edge-driver"/>
-			<attribute name="maven.version" value="4.18.1"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

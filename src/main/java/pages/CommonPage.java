@@ -25,6 +25,15 @@ public class CommonPage {
 		this.explicitWaitTime = CommonUtils.EXPLICIT_WAIT_BASIC_TIME;
 	}
 	
+	public void goTo(String url) {
+		driver.get(url);
+	}
+
+	public boolean isElementDisplayed(WebElement element) {
+		return  elementUtils.displayStatusOfElement(element, explicitWaitTime);
+	}
+	
+	
 	public String getEmailWithTimeStamp() {
 		Date date = new Date();
 		return "aldrin" + date.toString().replace(" ", "_").replace(":", "_") + "@gmail.com";

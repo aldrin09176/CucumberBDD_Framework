@@ -83,11 +83,6 @@ public class Register {
 	public void user_should_get_a_proper_warning_about_duplicate_email(String text) {
 		Assert.assertTrue(registerPage.getWarningMessageText(text));
 	}
-	
-//	@Then("User should see this warning message {string} regarding about credentials mismatch")
-//	public void user_should_get_a_proper_warning_message_about_credentials_mismatch(String text) {
-//		Assert.assertTrue(loginPage.getWarningMessageText(text));
-//	}
 
 	@When("User dont enter any details into fields")
 	public void user_dont_enter_any_details_into_fields() {

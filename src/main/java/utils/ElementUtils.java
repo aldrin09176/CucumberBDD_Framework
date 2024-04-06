@@ -23,10 +23,6 @@ public class ElementUtils {
 		this.actions = new Actions(driver);
 	}
 	
-	public void goTo(String url) {
-		driver.get(url);
-	}
-
 	public void clickOnElement(WebElement element, long durationInSeconds) {
 		WebElement webElement = waitForElement(element, durationInSeconds);
 		webElement.click();

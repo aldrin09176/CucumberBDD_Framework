@@ -12,7 +12,6 @@ import pages.AccountPage;
 import pages.CommonPage;
 import pages.HomePage;
 import pages.LoginPage;
-import utils.CommonUtils;
 
 public class Login {
 
@@ -20,7 +19,6 @@ public class Login {
 	private HomePage homePage;
 	private LoginPage loginPage;
 	private AccountPage accountPage;
-	private CommonUtils commonUtils;
 	private CommonPage commonPage;
 
 	public Login() {
@@ -28,7 +26,6 @@ public class Login {
 		homePage = new HomePage(driver);
 		loginPage = new LoginPage(driver);
 		accountPage = new AccountPage(driver);
-		commonUtils = new CommonUtils(driver);
 		commonPage = new CommonPage(driver);
 	}
 
@@ -55,7 +52,7 @@ public class Login {
 
 	@Then("User should get successfully logged in")
 	public void user_should_get_successfully_logged_in() {
-		Assert.assertTrue(commonUtils.isElementDisplayed(accountPage.editYourAccountInformationOption));
+		Assert.assertTrue(commonPage.isElementDisplayed(accountPage.editYourAccountInformationOption));
 	}
 
 	@When("User enters invalid email address into email field")
